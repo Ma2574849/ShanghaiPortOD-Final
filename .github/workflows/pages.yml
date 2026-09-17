@@ -30,7 +30,7 @@ jobs:
       - name: Unpack website
         run: |
           mkdir unpacked
-          unzip build.zip -d unpacked
+          unzip build.zip -d unpacked || [ $? -eq 1 ]
 
           if [ -f "unpacked/build/index.html" ]; then
             mv unpacked/build site
